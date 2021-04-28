@@ -1,4 +1,7 @@
-import java.io.*;
+import java.io.InputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.OutputStream;
 
 public class ThreadB_Alleyne extends Thread {
 
@@ -29,14 +32,14 @@ public class ThreadB_Alleyne extends Thread {
     	  os.write(somePrimitive);
 
           System.out.println();
-          System.out.println("[ ThreadB_Alleyne sending primitive: (" + somePrimitive + ") ]");
+          System.out.println("[ ThreadB_Alleyne sending primitive: (" + somePrimitive + ")  to ThreadC_Alleyne ]");
           System.out.println();
 
 
           /*Creates the message and then sends using the ObjectOutputStream*/
           Message_Alleyne m2 = new Message_Alleyne();
           m2.theMessage = "Object from ThreadB_Alleyne TO ThreadA_Alleyne reporting!";
-          String[] s = { "134", "232", "333" };
+          String[] s = {"430", "203", "892"};
           m2.someLines = s;
           m2.someNumber= 030;
 
