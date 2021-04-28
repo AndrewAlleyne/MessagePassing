@@ -37,7 +37,7 @@ public class ThreadD_Alleyne extends Thread {
             m2.theMessage = "Object from ThreadD_Alleyne TO ThreadC_Alleyne reporting!";
             String[] s = {"134", "232", "333"};
             m2.someLines = s;
-            m2.someNumber = 030;
+            m2.someNumber = 031;
 
             System.out.println();
 

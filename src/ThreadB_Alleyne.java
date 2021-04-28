@@ -1,4 +1,3 @@
-import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.OutputStream;
@@ -10,7 +9,6 @@ public class ThreadB_Alleyne extends Thread {
    private ObjectInputStream  ois;
 
    // to write raw bytes
-   private InputStream        is;
    private OutputStream       os;
    private OutputStream       os2;
 
@@ -27,16 +25,16 @@ public class ThreadB_Alleyne extends Thread {
 
       try {
 
-    	 //SEND PRIMITIVE TO TC
-    	  int somePrimitive = 23; 
-    	  os.write(somePrimitive);
+          // send primtive to thread C
+          int somePrimitive = 23;
+          os.write(somePrimitive);
 
           System.out.println();
           System.out.println("[ ThreadB_Alleyne sending primitive: (" + somePrimitive + ")  to ThreadC_Alleyne ]");
           System.out.println();
 
 
-          /*Creates the message and then sends using the ObjectOutputStream*/
+          // create a message to send
           Message_Alleyne m2 = new Message_Alleyne();
           m2.theMessage = "Object from ThreadB_Alleyne TO ThreadA_Alleyne reporting!";
           String[] s = {"430", "203", "892"};
@@ -44,22 +42,17 @@ public class ThreadB_Alleyne extends Thread {
           m2.someNumber= 030;
 
           System.out.println("[ ThreadB_Alleyne sends object ]");
-          System.out.println(  m2 );
+          System.out.println(m2);
 
           // let objects be transmitted across the pipe
           oos = new ObjectOutputStream(os2);
-          oos.writeObject( m2 );
+          oos.writeObject(m2);
 
           oos.flush();
 
-        //END OF OBJECT TO TC
-          
-      } // end TRY
-      catch ( Exception exc ) {
-            System.out.println
-                  ( "Error ThreadB_Alleyne: " + exc );
+      } catch (Exception exc) {
+          System.out.println
+                  ("Error ThreadB_Alleyne: " + exc);
       } // end CATCH
-
-   } // end METHOD run
-
-} // end CLASS ThreadB_Alleyne
+   }
+}

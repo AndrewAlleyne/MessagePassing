@@ -1,3 +1,7 @@
+/*  Andrew Alleyne
+    344-715 Homework 4
+    Message Passing
+ */
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.PipedInputStream;
@@ -87,6 +91,6 @@ public class ConnectionManager_Alleyne {
         catch (Exception exc) {
             System.out.println(exc);
         } // end CATCH
-   }
+    }
 
 } // end CLASS ConnectionManager_Alleyne

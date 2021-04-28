@@ -32,6 +32,8 @@ public class ThreadA_Alleyne extends Thread {
             //read object stream from ThreadB
             ois = new ObjectInputStream(threadB_threadA_PIS);
             Message_Alleyne m2 = (Message_Alleyne) ois.readObject();
+
+            
             System.out.println();
             System.out.println("[ ThreadA_Alleyne receiving message from ThreadB_Alleyne ]");
             System.out.println(m2);

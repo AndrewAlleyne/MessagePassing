@@ -30,8 +30,10 @@ public class ThreadC_Alleyne extends Thread {
 
       try {
 
-
+         //read primitive from input stream of thread A
          int somePrimitive = is.read();
+
+         //read primitive from input stream of thread B
          int somePrimitive3 = threadB_threadC_PIS.read();
 
          System.out.println("[ ThreadC_Alleyne receiving primitive from ThreadB_Alleyne ]");
@@ -43,13 +45,17 @@ public class ThreadC_Alleyne extends Thread {
          System.out.println("[ ThreadC_Alleyne receiving primitive from ThreadA_Alleyne ]");
          System.out.println("\tPrimitive from ThreadA_Alleyne: (" + somePrimitive + ")");
 
-         int somePrimitive2 = 150;
+
          System.out.println();
          System.out.println("[ ThreadC_Alleyne sending primitive to ThreadD_Alleyne ]");
+
+         //writes primitive to thread D
+         int somePrimitive2 = 150;
          System.out.println("\tPrimitive sent to ThreadD_Alleyne: (" + somePrimitive2 + ")");
          threadC_threadD_POS.write(somePrimitive2);
          System.out.println();
 
+         //read object from thread D
          ois = new ObjectInputStream(threadD_threadC_PIS);
          Message_Alleyne m2 = (Message_Alleyne) ois.readObject();
          System.out.println();
@@ -58,7 +64,6 @@ public class ThreadC_Alleyne extends Thread {
 
 
       } catch (IOException | ClassNotFoundException e) {
-         // TODO Auto-generated catch block
          e.printStackTrace();
       }
       
